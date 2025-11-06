@@ -507,21 +507,21 @@ When using sudo with password piping in bash commands on **Arch Linux**, use the
 
 **✅ WORKING SYNTAX (Use This):**
 ```bash
-sudo -S command <<< "Luis2901"
+sudo -S command <<< "passwd"
 ```
 
 **Examples:**
 ```bash
-sudo -S mkdir -p /opt/google/chrome <<< "Luis2901"
-sudo -S ln -sf /path/to/source /path/to/target <<< "Luis2901"
-sudo -S systemctl restart service <<< "Luis2901"
-sudo -S pacman -S package <<< "Luis2901"
+sudo -S mkdir -p /opt/google/chrome <<< "passwd"
+sudo -S ln -sf /path/to/source /path/to/target <<< "passwd"
+sudo -S systemctl restart service <<< "passwd"
+sudo -S pacman -S package <<< "passwd"
 ```
 
 **❌ FAILED SYNTAX (Avoid These):**
 ```bash
-echo "Luis2901" | sudo -S command          # Often fails with "Sorry, try again"
-printf "Luis2901\n" | sudo -S command      # Also problematic
+echo "passwd" | sudo -S command          # Often fails with "Sorry, try again"
+printf "passwd\n" | sudo -S command      # Also problematic
 ```
 
 **Why:** The here-string syntax (`<<<`) handles stdin buffering and timing issues better than piping from echo/printf commands on Arch Linux.
